@@ -13,7 +13,7 @@ window.history.replaceState({}, document.title, window.location.pathname);
 
 const accessToken = localStorage.getItem("access_token");
 if (!accessToken) {
-window.location.href = "/login/login.html";
+window.location.href = "../login/login.html";
 }
 
 // API functions
@@ -333,7 +333,7 @@ navigator.clipboard.writeText(text).then(() => {
 
 function logout() {
 localStorage.removeItem('access_token');
-window.location.href = '/login/login.html';
+window.location.href = '../login/login.html';
 }
 
 // Close modal when clicking outside

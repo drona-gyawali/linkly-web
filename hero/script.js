@@ -127,7 +127,7 @@ function copyToClipboard() {
 }
 
 document.getElementById("get-started").addEventListener("click", () => {
-    window.location.href = '/signup/signup.html'
+    window.location.href = '../signup/signup.html'
 })
 
 // Generate QR code

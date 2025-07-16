@@ -254,7 +254,7 @@ async function handleSignup(event) {
             toastManager.error(String(data.detail || 'Signup failed. Try again.'));
         } else {
             toastManager.success('Account created successfully!');
-            window.location.href = '/dashboard/dashboard.html';
+            window.location.href = '../dashboard/dashboard.html';
         }
     } catch (error) {
         console.error(error);

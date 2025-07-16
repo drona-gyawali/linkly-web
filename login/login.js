@@ -163,7 +163,7 @@ async function handleLogin(event) {
       localStorage.setItem("access_token", data.access_token);
 
       toast.success("Login Successful");
-      window.location.href = '/dashboard/dashboard.html';
+      window.location.href = '../dashboard/dashboard.html';
     }
   } catch (error) {
     console.error(error);
