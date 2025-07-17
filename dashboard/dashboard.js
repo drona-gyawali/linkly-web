@@ -19,7 +19,7 @@ window.location.href = "../login/login.html";
 // API functions
 async function fetchUserData() {
 try {
-    const response = await fetch(`${baseurl}/me`, {
+    const response = await fetch(`${baseurl}me`, {
         headers: {
             'Authorization': `Bearer ${accessToken}`,
             'accept': 'application/json'
