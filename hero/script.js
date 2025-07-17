@@ -130,6 +130,16 @@ document.getElementById("get-started").addEventListener("click", () => {
     window.location.href = '../signup/signup.html'
 })
 
+document.getElementById("mob-getStarted").addEventListener("click", () => {
+    window.location.href = '../signup/signup.html'
+})
+
+
+document.getElementById("mob-sigin").addEventListener("click", () => {
+    window.location.href = '../login/login.html'
+})
+
+
 // Generate QR code
 document.querySelector("#generate-qr").addEventListener('click', generateQR);
 async function generateQR() {
