@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>URL Shortener Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <!-- Favicon (desktop browser) -->
-    <link rel="icon" type="image/png" sizes="192x192" href="/static/android-chrome-192x192.png" />
-    <link rel="icon" type="image/png" sizes="512x512" href="/static/android-chrome-512x512.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="../static/android-chrome-192x192.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="../static/android-chrome-512x512.png" />
 
     <!-- Manifest for Android PWA -->
-    <link rel="manifest" href="/static/site.webmanifest" />
+    <link rel="manifest" href="../static/site.webmanifest" />
 
     <!-- Apple Touch Icon (optional for iOS) -->
-    <link rel="apple-touch-icon" href="/static/android-chrome-192x192.png" />
+    <link rel="apple-touch-icon" href="../static/android-chrome-192x192.png" />
+    
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="dashboard.css">
 </head>
+
 <body class="min-h-screen text-white">
     <div class="container mx-auto px-4 py-8">
         <!-- Header with User Profile -->
@@ -37,7 +41,8 @@
                         <i class="fas fa-link text-blue-400 mr-2"></i>
                         <span id="totalUrls">0</span> URLs
                     </div>
-                    <button onclick="logout()" class="glass-card-dark rounded-full px-4 py-2 hover:bg-red-500/20 transition-colors">
+                    <button onclick="logout()"
+                        class="glass-card-dark rounded-full px-4 py-2 hover:bg-red-500/20 transition-colors">
                         <i class="fas fa-sign-out-alt text-red-400"></i>
                     </button>
                 </div>
@@ -76,21 +81,22 @@
                     <form id="createUrlForm" class="space-y-4">
                         <div>
                             <label class="block text-sm font-medium text-gray-300 mb-2">Original URL</label>
-                            <input type="url" id="originalUrl" required 
-                                   class="w-full px-4 py-3 rounded-xl bg-black/30 border border-gray-600 text-white placeholder-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/50 transition-all"
-                                   placeholder="https://example.com">
+                            <input type="url" id="originalUrl" required
+                                class="w-full px-4 py-3 rounded-xl bg-black/30 border border-gray-600 text-white placeholder-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/50 transition-all"
+                                placeholder="https://example.com">
                         </div>
-                        
+
                         <div>
                             <label class="block text-sm font-medium text-gray-300 mb-2">Expiry (seconds)</label>
                             <input type="number" id="expiry" required value="3600" min="60"
-                                   class="w-full px-4 py-3 rounded-xl bg-black/30 border border-gray-600 text-white placeholder-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/50 transition-all"
-                                   placeholder="3600">
+                                class="w-full px-4 py-3 rounded-xl bg-black/30 border border-gray-600 text-white placeholder-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/50 transition-all"
+                                placeholder="3600">
                         </div>
 
                         <!-- UTM Builder Toggle -->
                         <div class="flex items-center space-x-3">
-                            <input type="checkbox" id="utmToggle" class="w-4 h-4 text-blue-600 bg-gray-700 border-gray-600 rounded focus:ring-blue-500">
+                            <input type="checkbox" id="utmToggle"
+                                class="w-4 h-4 text-blue-600 bg-gray-700 border-gray-600 rounded focus:ring-blue-500">
                             <label for="utmToggle" class="text-sm font-medium text-gray-300">Add UTM Parameters</label>
                         </div>
 
@@ -99,24 +105,24 @@
                             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                                 <div>
                                     <label class="block text-sm font-medium text-gray-300 mb-2">UTM Source</label>
-                                    <input type="text" id="utmSource" 
-                                           class="w-full px-4 py-2 rounded-lg bg-black/30 border border-gray-600 text-white placeholder-gray-400 focus:border-blue-500 transition-all text-sm"
-                                           placeholder="google">
+                                    <input type="text" id="utmSource"
+                                        class="w-full px-4 py-2 rounded-lg bg-black/30 border border-gray-600 text-white placeholder-gray-400 focus:border-blue-500 transition-all text-sm"
+                                        placeholder="google">
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium text-gray-300 mb-2">UTM Medium</label>
-                                    <input type="text" id="utmMedium" 
-                                           class="w-full px-4 py-2 rounded-lg bg-black/30 border border-gray-600 text-white placeholder-gray-400 focus:border-blue-500 transition-all text-sm"
-                                           placeholder="cpc">
+                                    <input type="text" id="utmMedium"
+                                        class="w-full px-4 py-2 rounded-lg bg-black/30 border border-gray-600 text-white placeholder-gray-400 focus:border-blue-500 transition-all text-sm"
+                                        placeholder="cpc">
                                 </div>
                                 <div>
                                     <label class="block text-sm font-medium text-gray-300 mb-2">UTM Campaign</label>
-                                    <input type="text" id="utmCampaign" 
-                                           class="w-full px-4 py-2 rounded-lg bg-black/30 border border-gray-600 text-white placeholder-gray-400 focus:border-blue-500 transition-all text-sm"
-                                           placeholder="summer-sale">
+                                    <input type="text" id="utmCampaign"
+                                        class="w-full px-4 py-2 rounded-lg bg-black/30 border border-gray-600 text-white placeholder-gray-400 focus:border-blue-500 transition-all text-sm"
+                                        placeholder="summer-sale">
                                 </div>
                             </div>
-                            
+
                             <!-- URL Preview -->
                             <div class="p-3 bg-black/40 rounded-lg border border-gray-700">
                                 <label class="block text-sm font-medium text-gray-300 mb-2">URL Preview:</label>
@@ -126,8 +132,8 @@
                             </div>
                         </div>
 
-                        <button type="submit" id="createBtn" 
-                                class="w-full py-3 px-6 rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 focus:ring-2 focus:ring-blue-500/50">
+                        <button type="submit" id="createBtn"
+                            class="w-full py-3 px-6 rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 focus:ring-2 focus:ring-blue-500/50">
                             <i class="fas fa-magic mr-2"></i>
                             Create Short URL
                         </button>
@@ -197,4 +203,5 @@
 
     <script src="dashboard.js" defer></script>
 </body>
+
 </html>
