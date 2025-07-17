@@ -1,4 +1,4 @@
-const baseurl = "http://127.0.0.1:8000"
+const baseurl = "https://linkly-production.up.railway.app/"
 
 let userData = null;
 let clickChart = null;

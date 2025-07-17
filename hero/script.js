@@ -1,5 +1,5 @@
 
-const baseUrl = "http://127.0.0.1:8000/"
+const baseUrl = "https://linkly-production.up.railway.app/"
 
 // Mobile menu toggle
 function toggleMobileMenu() {

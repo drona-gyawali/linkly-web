@@ -1,4 +1,4 @@
-const BASEAPI = "http://127.0.0.1:8000/"
+const BASEAPI = "https://linkly-production.up.railway.app/"
 
 class ToastManager {
     constructor() {
